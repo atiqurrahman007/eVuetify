@@ -8,7 +8,7 @@ use App\User;
 class Role extends Model
 {   
 	protected $fillable = [
-        'name', 
+        'name', 'id',
     ];
     public function users(){
      return $this->hasMany(User::class);

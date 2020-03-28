@@ -6,9 +6,21 @@ import Register from './components/Auth/RegisterComponent.vue';
 import Home from './components/Frontend/HomeComponent.vue';
 import ProductDetails from './components/Frontend/ProductDetails.vue';
 
+// DailyBazar(Frontend)
+import DailyBazarHome from './components/Frontend/DailyBazar/DailybazarHomeComponent.vue';
+
 // Backend
 import AdminHome from './components/Backend/DashboardComponent.vue';
-import AdminProfile from './components/Backend/AdminProfile.vue';
+import Administration from './components/Backend/AdministrationComponent.vue';
+import Role from './components/Backend/RoleComponent.vue';
+import AdminUsers from './components/Backend/UsersComponent.vue';
+import Tags from './components/Backend/Tags/TagComponent.vue';
+import Category from './components/Backend/Category/CategoryComponent.vue';
+import Brand from './components/Backend/Brand/BrandComponent.vue';
+
+
+// DailyProduct
+import DailyProduct from './components/Backend/Dailyproduct/DailyproductComponent.vue';
 
 
 
@@ -27,6 +39,11 @@ export const routes = [
     	name:'home',
 
     	children: [
+        {
+           path:'dailybazar',
+           component:DailyBazarHome,
+           name:'dailybazar',
+        },
         {
           path: 'product-details',
           component: ProductDetails,
@@ -68,11 +85,20 @@ export const routes = [
 
     	children: [
         {
-          path: 'profile',
-          component: AdminProfile,
-          name:'Profile'
+          path: 'users',
+          component: AdminUsers,
+          name:'users'
           
         },
+
+        {path:'administration', component:Administration, name:'administration'},
+        {path:'roles', component:Role, name:'roles'},
+        {path:'tag', component:Tags, name:'tag'},
+        {path:'category', component:Category, name:'category'},
+        {path:'brand', component:Brand, name:'brand'},
+
+        // Dailyproduct
+        {path:'dailyproduct', component:DailyProduct, name:'dailyproduct'},
         
       ]
     }
@@ -80,3 +106,4 @@ export const routes = [
 
 
 ]
+

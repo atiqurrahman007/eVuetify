@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Role;
-
+use App\Profile;
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
@@ -41,5 +41,14 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
+    }
+    public function profile()
+    {
+        return $this->hasOne(Profile::class)->withDefault();
+    }
+
+
+    public function dailyproducts(){
+     return $this->hasMany('App\Dailyproduct', 'id');
     }
 }

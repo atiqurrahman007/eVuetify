@@ -11,6 +11,8 @@
     <body>
         <v-app id="app">
             <main-app></main-app>
+            <vue-snotify></vue-snotify>
+            <vue-progress-bar></vue-progress-bar>
         </v-app>
         <script type="text/javascript"  src="{{asset('js/app.js')}}"></script>
     </body>

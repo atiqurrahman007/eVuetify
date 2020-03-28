@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Profile;
 use Auth;
+use App\Role;
 use Carbon\Carbon;
 
 class AuthController extends Controller
@@ -24,6 +26,7 @@ class AuthController extends Controller
        ]);
        
          $user->save();
+         $user->profile()->save(new Profile());
          return response()->json(['message'=>'Successfully create user !'], 201);
 
     }
@@ -69,8 +72,15 @@ class AuthController extends Controller
   }
 
   public function user(Request $request){
+       $user = $request->user();
+       $role = Role::where('id', $user->role_id)->first();
+  	   return response()->json(array('user'=>$user, 'role'=>$role));
+  }
 
-  	   return response()->json($request->user());
+  public function profile(Request $request){
+       $user = $request->user();
+       $profile = Profile::where('user_id', $user->id)->first();
+       return response()->json($profile);
   }
 
 }

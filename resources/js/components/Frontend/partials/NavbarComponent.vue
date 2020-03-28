@@ -1,4 +1,4 @@
-i<template>
+<template>
   <div>
     <v-app-bar
       app
@@ -84,6 +84,21 @@ i<template>
               <v-list-item-title class="white--text">{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+
+
+          <v-list-item
+            link
+            to="dailybazar"
+          >
+            <v-list-item-icon>
+              <v-icon class="white--text font-weight-bold" >mdi-shopping-outline</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title class="red--text font-weight-bold">Daily Bazar</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+
         </v-list>
       </v-navigation-drawer>
 <!-- Vapp drawers end -->
@@ -95,6 +110,7 @@ i<template>
         <v-row
           justify="center"
           align="center"
+          v-show="$route.path === '/'?true:false"
         >
           
             <Carousel/>

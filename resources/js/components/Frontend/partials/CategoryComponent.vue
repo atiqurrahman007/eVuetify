@@ -41,11 +41,15 @@
             <v-card
               :loading="loading"
               class="mx-auto my-4"
-              max-width="374"
+              max-width="250"
+              max-height="250"
               :elevation="hover ? 16 : 2"
+              align="center"
+
             >
               <v-img
-                height="100"
+                height="150"
+                width="150"
                 src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
               ></v-img>
 
